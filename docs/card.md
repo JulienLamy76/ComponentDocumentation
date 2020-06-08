@@ -101,7 +101,7 @@
 <div class="demo-wrapper">
   <div class="isometric-card">
     <div class="card-header">
-      <img src="/images/design_icon.png" alt="design icon">
+      <img src="images/design_icon.png" alt="design icon">
       <h3>Design</h3>
     </div>
     <div class="card-body">
@@ -117,7 +117,7 @@
 ```html
 <div class="card">
   <div class="card-header">
-    <img src="/images/design_icon.png" alt="design icon">
+    <img src="images/design_icon.png" alt="design icon">
     <h3>Design</h3>
   </div>
   <div class="card-body">
@@ -285,7 +285,7 @@
   <div class="card-hover-expandy">
     <div class="card-header">
       <div class="card-header-content">
-        <img src="/images/design_icon.png" alt="design icon">
+        <img src="images/design_icon.png" alt="design icon">
         <h3>Design</h3>
       </div>
     </div>
@@ -305,7 +305,7 @@
 <div class="card">
   <div class="card-header">
     <div class="card-header-content">
-      <img src="/images/design_icon.png" alt="design icon">
+      <img src="images/design_icon.png" alt="design icon">
       <h3>Design</h3>
     </div>
   </div>
@@ -470,7 +470,7 @@
   <div class="card-photo-container">
     <div class="card-photo">
       <div class="card-header">
-        <img src="/images/michel_dumas.jpg" alt="Michel Dumas">
+        <img src="images/michel_dumas.jpg" alt="Michel Dumas">
       </div>
       <div class="card-body">
         <h2>Michel Dumas</h2>
@@ -487,7 +487,7 @@
 <div class="card-photo-container">
   <div class="card-photo">
     <div class="card-header">
-      <img src="/images/michel_dumas.jpg" alt="Michel Dumas">
+      <img src="images/michel_dumas.jpg" alt="Michel Dumas">
     </div>
     <div class="card-body">
       <h2>Michel Dumas</h2>

@@ -8,8 +8,8 @@
 .blend-mode-screen {
   width: 200px;
   height: 500px;
-  background: url("/images/costume_noir.jpg"),
-    url("/images/jungle.jpg");
+  background: url("images/costume_noir.jpg"),
+    url("images/jungle.jpg");
   background-position: center;
   background-size: cover;
   background-blend-mode: screen;
@@ -34,8 +34,8 @@
 .blend-mode-screen {
   width: 200px;
   height: 500px;
-  background: url("/images/costume_noir.jpg"),
-    url("/images/jungle.jpg");
+  background: url("images/costume_noir.jpg"),
+    url("images/jungle.jpg");
   background-position: center;
   background-size: cover;
   background-blend-mode: screen;
@@ -49,8 +49,8 @@
 .blend-mode-lighten {
   width: 200px;
   height: 500px;
-  background: url("/images/costume_noir.jpg"),
-    url("/images/jungle.jpg");
+  background: url("images/costume_noir.jpg"),
+    url("images/jungle.jpg");
   background-position: center;
   background-size: cover;
   background-blend-mode: lighten;
@@ -74,8 +74,8 @@
 .blend-mode-lighten {
   width: 200px;
   height: 500px;
-  background: url("/images/costume_noir.jpg"),
-    url("/images/jungle.jpg");
+  background: url("images/costume_noir.jpg"),
+    url("images/jungle.jpg");
   background-position: center;
   background-size: cover;
   background-blend-mode: lighten;
@@ -89,8 +89,8 @@
 .blend-mode-darken {
   width: 200px;
   height: 500px;
-  background: url("/images/costume_noir.jpg"),
-    url("/images/jungle.jpg");
+  background: url("images/costume_noir.jpg"),
+    url("images/jungle.jpg");
   background-position: center;
   background-size: cover;
   background-blend-mode: darken;
@@ -114,8 +114,8 @@
 .blend-mode-darken {
   width: 200px;
   height: 500px;
-  background: url("/images/costume_noir.jpg"),
-    url("/images/jungle.jpg");
+  background: url("images/costume_noir.jpg"),
+    url("images/jungle.jpg");
   background-position: center;
   background-size: cover;
   background-blend-mode: darken;
@@ -135,7 +135,7 @@
 </style>
 <div class="demo-wrapper">
   <div class="image-multiply-container">
-    <img class="blend-mode-multiply" src="/images/text_typography.jpg" alt="Text Image" />
+    <img class="blend-mode-multiply" src="images/text_typography.jpg" alt="Text Image" />
   </div>
 </div>
 
@@ -145,7 +145,7 @@
 
 ```html
 <div class="image-container">
-    <img class="blend-mode-multiply" src="/images/text_typography.jpg" alt="Text Image" />
+    <img class="blend-mode-multiply" src="images/text_typography.jpg" alt="Text Image" />
 </div>
 ```
 
