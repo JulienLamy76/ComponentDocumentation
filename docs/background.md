@@ -1,5 +1,94 @@
 # Background
 
+## Clip Path
+
+https://bennettfeely.com/clippy/
+
+### Screen
+
+
+<style>
+.clip-path-container {
+  position: relative;
+  width: 600px;
+  height: 400px;
+}
+.clip-path-container .clip-path-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.clip-path-container .clip-path-image:nth-of-type(1) {
+  background: url("images/jungle.jpg");
+  background-size: cover;
+}
+.clip-path-container .clip-path-image:nth-of-type(2) {
+  background: url("images/cloud.jpg");
+  background-size: cover;
+  z-index: 2;
+  transition: 0.5s;
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 100%);
+}
+.clip-path-container .clip-path-image:nth-of-type(2):hover {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+.clip-path-container .clip-path-image:nth-of-type(1):hover ~ .clip-path-image:nth-of-type(2) {
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+}
+</style>
+
+
+<div class="demo-wrapper">
+  <div class="clip-path-container">
+    <div class="clip-path-image"></div>
+    <div class="clip-path-image"></div>
+  </div>
+</div>
+
+<!-- tabs:start -->
+
+#### ** HTML **
+
+```html
+<div class="clip-path-container">
+  <div class="clip-path-image"></div>
+  <div class="clip-path-image"></div>
+</div>
+```
+
+#### ** CSS **
+
+```css
+.clip-path-container {
+  position: relative;
+  width: 600px;
+  height: 400px;
+}
+.clip-path-container .clip-path-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.clip-path-container .clip-path-image:nth-of-type(1) {
+  background: url("images/jungle.jpg");
+  background-size: cover;
+}
+.clip-path-container .clip-path-image:nth-of-type(2) {
+  background: url("images/cloud.jpg");
+  background-size: cover;
+  z-index: 2;
+  transition: 0.5s;
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 100%);
+}
+.clip-path-container .clip-path-image:nth-of-type(2):hover {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+.clip-path-container .clip-path-image:nth-of-type(1):hover ~ .clip-path-image:nth-of-type(2) {
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+}
+```
+<!-- tabs:end -->
+
 ## Blend mode
 
 ### Screen
@@ -145,7 +234,7 @@
 
 ```html
 <div class="image-container">
-    <img class="blend-mode-multiply" src="images/text_typography.jpg" alt="Text Image" />
+  <img class="blend-mode-multiply" src="images/text_typography.jpg" alt="Text Image" />
 </div>
 ```
 

@@ -15,11 +15,10 @@
   animation: toast-fadein 0.5s, toast-fadeout 1s 3s;
 }
 #event-toast-container .toast-box.toast-clicked {
-  -webkit-animation: toast-fadeout 1s 1s;
-  animation: toast-fadeout 1s 1s;
+  -webkit-animation: toast-fadeout 1s 0.5s;
+  animation: toast-fadeout 1s 0.5s;
 }
 #event-toast-container .toast-message {
-  background: #0000CC;
   padding: 15px;
   opacity: 0.8;
   border-radius: 3px;
@@ -31,7 +30,16 @@
   font-weight: 500;
   cursor: pointer;
 }
-#event-toast-container > .toast-message:hover {
+#event-toast-container .toast-success-message {
+  background-color: var(--theme-color);
+}
+#event-toast-container .toast-warning-message {
+  background-color: #de9d0c;
+}
+#event-toast-container .toast-error-message {
+  background-color: #CC0000;
+}
+#event-toast-container .toast-message:hover {
   opacity: 1;
   box-shadow: 0 0 12px #000;
 }
@@ -59,12 +67,9 @@
   to {transform: translateX(315px); opacity: 0;}
 }
 
-#toast-input {
-  margin: 0 10px;
-}
 .toast-button {
-  padding: 5px 10px;
-  background: linear-gradient(90deg, #0162c8, #55e7fc);
+  padding: 5px 20px;
+  margin: 0 5px;
   border: none;
   outline: none;
   border-radius: 20px;
@@ -72,45 +77,53 @@
   font-weight: bold;
   cursor: pointer;
   margin-top: 10px;
-  width: 100px;
   max-width: 100%;
 }
-.toast-wrapper {
-  flex-direction: column;
+.toast-success-button {
+  background-color: var(--theme-color);
+}
+.toast-warning-button {
+  background-color: #de9d0c;
+}
+.toast-error-button {
+  background-color: #cc0000;
 }
 </style>
 
-<div class="demo-wrapper toast-wrapper">
-  <div>
-    <label for="toast-input">Message :</label>
-    <input type="text" id="toast-input" />
-  </div>
-  <div>
-    <button class="toast-button" onClick="displayToast()">Toast !</button>
-  </div>
+<div class="demo-wrapper">
+  <button class="toast-button toast-success-button" onClick="toast.success('Success !')">Success</button>
+  <button class="toast-button toast-warning-button" onClick="toast.warning('Warning !')">Warning</button>
+  <button class="toast-button toast-error-button" onClick="toast.error('Error !')">Error</button>
   <div id="event-toast-container"></div>
 </div>
 
 <script>
-toast = (message) => {
-  let toastContainer = document.getElementById("event-toast-container");
-  let toastBox = document.createElement("div");
-  toastBox.classList.add('toast-box');
-  let toastMsg = document.createElement("div");
-  toastMsg.classList.add('toast-message');
-  toastMsg.append(message);
-  toastBox.append(toastMsg);
-  toastContainer.append(toastBox);
-  const animEnd = (e) => { e.animationName === 'toast-fadeout' && toastContainer.removeChild(toastBox); };
-  toastBox.addEventListener("webkitAnimationEnd", animEnd);
-  toastBox.addEventListener("animationend", animEnd);
-  toastBox.onclick = () => { toastBox.classList.add('toast-clicked'); };
-}
-
-displayToast = () => {
-  let toastMessage = document.getElementById('toast-input').value;
-  toast(toastMessage);
-}
+toast = {
+  display: (message, type) => {
+    let toastContainer = document.getElementById("event-toast-container");
+    let toastBox = document.createElement("div");
+    toastBox.classList.add('toast-box');
+    let toastMsg = document.createElement("div");
+    toastMsg.classList.add('toast-message');
+    toastMsg.classList.add(`toast-${type}-message`);
+    toastMsg.append(message);
+    toastBox.append(toastMsg);
+    toastContainer.append(toastBox);
+    const animEnd = (e) => { e.animationName === 'toast-fadeout' && toastContainer.removeChild(toastBox); };
+    toastBox.addEventListener("webkitAnimationEnd", animEnd);
+    toastBox.addEventListener("animationend", animEnd);
+    toastBox.onclick = () => { toastBox.classList.add('toast-clicked'); };
+  },
+  success: (message) => {
+    toast.display(message, 'success');
+  },
+  warning: (message) => {
+    toast.display(message, 'warning');
+  },
+  error: (message) => {
+    toast.display(message, 'error');
+  }
+};
 </script>
 
 <!-- tabs:start -->
@@ -118,6 +131,9 @@ displayToast = () => {
 #### ** HTML **
 
 ```html
+<button onClick="toast.success('Success !')">Success</button>
+<button onClick="toast.warning('Warning !')">Warning</button>
+<button onClick="toast.error('Error !')">Error</button>
 <div id="event-toast-container"></div>
 ```
 
@@ -138,11 +154,10 @@ displayToast = () => {
   animation: toast-fadein 0.5s, toast-fadeout 1s 3s;
 }
 #event-toast-container .toast-box.toast-clicked {
-  -webkit-animation: toast-fadeout 1s 1s;
-  animation: toast-fadeout 1s 1s;
+  -webkit-animation: toast-fadeout 1s 0.5s;
+  animation: toast-fadeout 1s 0.5s;
 }
 #event-toast-container .toast-message {
-  background: #0000CC;
   padding: 15px;
   opacity: 0.8;
   border-radius: 3px;
@@ -154,7 +169,16 @@ displayToast = () => {
   font-weight: 500;
   cursor: pointer;
 }
-#event-toast-container > .toast-message:hover {
+#event-toast-container .toast-success-message {
+  background-color: var(--theme-color);
+}
+#event-toast-container .toast-warning-message {
+  background-color: #de9d0c;
+}
+#event-toast-container .toast-error-message {
+  background-color: #CC0000;
+}
+#event-toast-container .toast-message:hover {
   opacity: 1;
   box-shadow: 0 0 12px #000;
 }
@@ -186,19 +210,31 @@ displayToast = () => {
 #### ** JavaScript **
 
 ```javascript
-toast = (message) => {
-  let toastContainer = document.getElementById("event-toast-container");
-  let toastBox = document.createElement("div");
-  toastBox.classList.add('toast-box');
-  let toastMsg = document.createElement("div");
-  toastMsg.classList.add('toast-message');
-  toastMsg.append(message);
-  toastBox.append(toastMsg);
-  toastContainer.append(toastBox);
-  const animEnd = (e) => { e.animationName === 'toast-fadeout' && toastContainer.removeChild(toastBox); };
-  toastBox.addEventListener("webkitAnimationEnd", animEnd);
-  toastBox.addEventListener("animationend", animEnd);
-  toastBox.onclick = () => { toastBox.classList.add('toast-clicked'); };
-}
+toast = {
+  display: (message, type) => {
+    let toastContainer = document.getElementById("event-toast-container");
+    let toastBox = document.createElement("div");
+    toastBox.classList.add('toast-box');
+    let toastMsg = document.createElement("div");
+    toastMsg.classList.add('toast-message');
+    toastMsg.classList.add(`toast-${type}-message`);
+    toastMsg.append(message);
+    toastBox.append(toastMsg);
+    toastContainer.append(toastBox);
+    const animEnd = (e) => { e.animationName === 'toast-fadeout' && toastContainer.removeChild(toastBox); };
+    toastBox.addEventListener("webkitAnimationEnd", animEnd);
+    toastBox.addEventListener("animationend", animEnd);
+    toastBox.onclick = () => { toastBox.classList.add('toast-clicked'); };
+  },
+  success: (message) => {
+    toast.display(message, 'success');
+  },
+  warning: (message) => {
+    toast.display(message, 'warning');
+  },
+  error: (message) => {
+    toast.display(message, 'error');
+  }
+};
 ```
 <!-- tabs:end -->
