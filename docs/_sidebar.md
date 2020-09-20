@@ -4,5 +4,6 @@
 * [Border](border.md "Border")
 * [Button](button.md "Button")
 * [Card](card.md "Card")
+* [Graph](graph.md "Graph")
 * [Navbar](navbar.md "Navbar")
 * [Toast](toast.md "Toast")
